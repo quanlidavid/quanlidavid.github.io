@@ -3,7 +3,7 @@ Date: 2010-12-03 10:20
 Modified: 2010-12-05 19:30
 Category: Tech
 Tags: pelican, publishing
-Slug: tech1
+Slug: tech2
 Authors: Quan
 Summary: Short version for index and feeds
 
