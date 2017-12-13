@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>Quan's Blog - Quan</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">Quan's Blog </a></h1>
+                <nav><ul>
+                    <li><a href="/category/child.html">Child</a></li>
+                    <li><a href="/category/git.html">Git</a></li>
+                    <li><a href="/category/play.html">Play</a></li>
+                    <li><a href="/category/pythonyuan-ma-jing-du.html">Python源码精读</a></li>
+                    <li><a href="/category/tech.html">Tech</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/tech3.html">解析xml的CDATA里的html tag</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2017-12-11T10:20:00+08:00">
+                Published: Mon 11 December 2017
+        </abbr>
+		<br />
+        <abbr class="modified" title="2017-12-11T19:30:00+08:00">
+                Updated: Mon 11 December 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/quan.html">Quan</a>
+        </address>
+<p>In <a href="/category/tech.html">Tech</a>.</p>
+<p>tags: <a href="/tag/beautifulsoup.html">beautifulsoup</a> <a href="/tag/xml.html">xml</a> </p>
+</footer><!-- /.post-info --><p>参考：
+<a href="https://www.cnblogs.com/qiantuwuliang/archive/2010/03/29/1699361.html">XML CDATA是什么？</a></p>
+<p>需要解析如下xml的CDATA里的HTML tag：</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;component</span> <span class="na">vis=</span><span class="s">&quot;true&quot;</span> <span class="na">id=</span><span class="s">&quot;m785e53fe-sccombobox_textbox_holder&quot;</span> <span class="na">compid=</span><span class="s">&quot;m785e53fe-sccombobox_textbox&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[</span>
+
+<span class="cp">&lt;input datatype=&quot;0&quot; id=&quot;m785e53fe-sccombobox_textbox&quot;  aria-required=&quot;true&quot;  role=&quot;combobox&quot; aria-autocomplete=&quot;none&quot;  class=&quot;fld pmscoffcat_text_node cbt  ibfld fld_req&quot;     ctype=&quot;textbox&quot;   li=&quot;m785e53fe-sccombobox_dropimage&quot; liclick=&quot;1&quot;    maxlength=&quot;254&quot; style=&quot;;width:247.5px;&quot;      sue=&quot;1&quot;  readonly=&quot;readonly&quot; type=&quot;text&quot;   value=&quot;small.1&quot; ov=&quot;small.1&quot; work=&quot;1&quot; fldInfo=&#39;{&amp;quot;length&amp;quot;:&amp;quot;254&amp;quot;,&amp;quot;eventpriority&amp;quot;:1,&amp;quot;required&amp;quot;:true,&amp;quot;inttype&amp;quot;:&amp;quot;0&amp;quot;}&#39;/&gt;]]&gt;</span><span class="nt">&lt;/component&gt;</span>
+    <span class="nt">&lt;compvalue</span> <span class="na">id=</span><span class="s">&quot;m785e53fe-sccombobox_textbox&quot;</span><span class="nt">&gt;</span><span class="cp">&lt;![CDATA[small.1]]&gt;</span><span class="nt">&lt;/compvalue&gt;</span>
+</pre></div>
+
+
+<p>需要拿到input的value值。</p>
+<div class="highlight"><pre><span></span>r = s.post(&#39;https://10.180.19.18/maximo/ui/maximo.jsp&#39;, data=payload)
+soup = BeautifulSoup(r.text, &quot;lxml-xml&quot;)
+tshirtsize = BeautifulSoup(soup.text, &#39;html5lib&#39;).find(&#39;input&#39;, attrs={&#39;id&#39;: &#39;m785e53fe-sccombobox_textbox&#39;})[&#39;value&#39;]
+</pre></div>
+
+
+<p>通过以上方式可以拿到。</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/pythonsourcecode01.html" rel="bookmark"
+                           title="Permalink to 开始阅读Python开源项目源代码">开始阅读Python开源项目源代码</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2017-12-03T10:20:00+08:00">
+                Published: Sun 03 December 2017
+        </abbr>
+		<br />
+        <abbr class="modified" title="2017-12-05T19:30:00+08:00">
+                Updated: Tue 05 December 2017
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/quan.html">Quan</a>
+        </address>
+<p>In <a href="/category/pythonyuan-ma-jing-du.html">Python源码精读</a>.</p>
+<p>tags: <a href="/tag/python.html">Python</a> <a href="/tag/sourcecode.html">sourcecode</a> </p>
+</footer><!-- /.post-info -->                <p>Short version for index and feeds</p>
+                <a class="readmore" href="/pythonsourcecode01.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/git01.html" rel="bookmark"
+                           title="Permalink to Learning git and github">Learning git and github</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-12-03T10:20:00+08:00">
+                Published: Fri 03 December 2010
+        </abbr>
+		<br />
+        <abbr class="modified" title="2010-12-05T19:30:00+08:00">
+                Updated: Sun 05 December 2010
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/quan.html">Quan</a>
+        </address>
+<p>In <a href="/category/git.html">Git</a>.</p>
+<p>tags: <a href="/tag/git.html">git</a> </p>
+</footer><!-- /.post-info -->                <p>Short version for index and feeds</p>
+                <a class="readmore" href="/git01.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/tech2.html" rel="bookmark"
+                           title="Permalink to 使用Github Pages + pelican搭建个人Blog">使用Github Pages + pelican搭建个人Blog</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-12-03T10:20:00+08:00">
+                Published: Fri 03 December 2010
+        </abbr>
+		<br />
+        <abbr class="modified" title="2010-12-05T19:30:00+08:00">
+                Updated: Sun 05 December 2010
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/quan.html">Quan</a>
+        </address>
+<p>In <a href="/category/tech.html">Tech</a>.</p>
+<p>tags: <a href="/tag/pelican.html">pelican</a> <a href="/tag/publishing.html">publishing</a> </p>
+</footer><!-- /.post-info -->                <p>Short version for index and feeds</p>
+                <a class="readmore" href="/tech2.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
